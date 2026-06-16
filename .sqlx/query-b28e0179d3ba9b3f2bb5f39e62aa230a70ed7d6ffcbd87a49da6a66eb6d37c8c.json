@@ -1,0 +1,50 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        SELECT\n            COUNT(*)                                          AS total,\n            COUNT(*) FILTER (WHERE status = 'queued')        AS queued,\n            COUNT(*) FILTER (WHERE status = 'running')       AS running,\n            COUNT(*) FILTER (WHERE status = 'completed')     AS completed,\n            COUNT(*) FILTER (WHERE status = 'failed')        AS failed,\n            COUNT(*) FILTER (WHERE status = 'dead_lettered') AS dead_lettered\n        FROM jobs\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "total",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 1,
+        "name": "queued",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "running",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 3,
+        "name": "completed",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 4,
+        "name": "failed",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 5,
+        "name": "dead_lettered",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "hash": "b28e0179d3ba9b3f2bb5f39e62aa230a70ed7d6ffcbd87a49da6a66eb6d37c8c"
+}

@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            UPDATE jobs\n            SET\n                status     = 'dead_lettered',\n                attempts   = attempts + 1,\n                last_error = $2,\n                locked_at  = NULL,\n                locked_by  = NULL\n            WHERE id = $1\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "abec9697be823c268c5298e4634d8c412f084395b240bbc88e2ca71905ec2897"
+}

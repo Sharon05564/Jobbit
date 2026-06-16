@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            UPDATE jobs\n            SET\n                status     = 'queued',\n                attempts   = attempts + 1,\n                last_error = $2,\n                run_at     = $3,\n                locked_at  = NULL,\n                locked_by  = NULL\n            WHERE id = $1\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text",
+        "Timestamptz"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "04a9995205797a3394422b9fe0789989935cd5b214c31d84dee0d2c05001f9d0"
+}
